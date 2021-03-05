@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StringProcessor.Repository
 {
-    public class StringRepository
+    public class StringRepository : IStringRepository
     {
         public List<String> TrucateStrings(List<String> originalStrings)
         {
@@ -48,7 +48,7 @@ namespace StringProcessor.Repository
             foreach (var str in originalStrings)
             {
                 if (str.Length < 2)
-                    break;
+                    continue;
 
                 Regex regex = new Regex("(.)(?<=\\1\\1)", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 

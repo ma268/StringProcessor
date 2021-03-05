@@ -9,12 +9,12 @@ namespace StringProcessor.Controllers
     [ApiController]
     public class StringController : ControllerBase
     {
-        public StringController(StringRepository stringRepository)
+        public StringController(IStringRepository stringRepository)
         {
             StringRepository = stringRepository;
         }
 
-        public StringRepository StringRepository { get; }
+        public IStringRepository StringRepository { get; }
 
         // GET: api/String/ProcessStrings
         [HttpGet("ProcessStrings")]
